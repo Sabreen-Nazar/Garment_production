@@ -23,5 +23,56 @@ It is a Garments Productivity Project  - Regression Project
 15. **actual_productivity**: The actual percentage of productivity that was delivered by the workers. It ranges from 0 to 1.
 
 
+# Steps for Deployment
+
+1. Create New environment (open New Terminal -> power shell + -> Command Prompt )
+
+``` 
+   python -m venv venv_name
+
+"OR"
+   
+   conda create -p venv python  -y
+```
+
+2. Activate the Environment
+```
+venv_name\Scripts\activate
+
+"OR"
+
+conda activate venv_name
+
+```
+
+In case of error 
+``` 
+CALL conda.bat activate
+
+```
+and run the conda active code-
+
+*OR*
+
+```
+conda activate venv_name
+
+```
+
+3. Install all necessary packages
+```
+pip install -r requirements.txt
+
+```
+
+4. create app.py file to have FLask Code
+
+5. create template folder and inside templates folder create newfile and name it as home.html 
+   In html file have your template design 
+
+
+
+
+
 
 
