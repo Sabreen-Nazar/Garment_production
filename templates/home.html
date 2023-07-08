@@ -1,48 +1,86 @@
-<!DOCTYPE html>
-<html >
 
+
+
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="UTF-8">
   <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: 'Arimo', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
 
-  
+    .login {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    button[type="submit"] {
+      background-color: #4caf50;
+      border: none;
+      border-radius: 3px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+    }
+  </style>
 </head>
-
 <body>
- <div class="login">
-	<h1>Garment Production</h1>
-
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-      <input type="text" name="quarter" placeholder="quarter" required="required" /><br>
-    	<input type="text" name="department" placeholder="department" required="required" /><br>
-        <input type="text" name="team" placeholder="team" required="required" /><br>
-        <input type="text" name="targeted_productivity" placeholder="targeted_productivity" required="required" /><br>
-        <input type="text" name="smv" placeholder="smv" required="required" /><br>
-        <input type="text" name="wip" placeholder="wip" required="required" /><br>
-        <input type="text" name="over_time" placeholder="over_time" required="required" /><br>
-        <input type="text" name="incentive" placeholder="idle_time" required="required" /><br>
-        <input type="text" name="idle_time" placeholder="idle_time" required="required" /><br>
-        <input type="text" name="idle_men" placeholder="idle_men" required="required" /><br>
-        <input type="text" name="no_of_style_change" placeholder="no_of_style_change" required="required" /><br>
-        <input type="text" name="no_of_workers" placeholder="no_of_workers" required="required" /><br>
-
-
-       
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+  <div class="login">
+    <h1>Garment Production</h1>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" name="quarter" placeholder="Quarter" required="required" /><br>
+      <input type="text" name="department" placeholder="Department- (sewing -0 , finished -1)" required="required" /><br>
+      <input type="text" name="team" placeholder="Team" required="required" /><br>
+      <input type="text" name="targeted_productivity" placeholder="Targeted Productivity" required="required" /><br>
+      <input type="text" name="allovated_time_in_min(smv)" placeholder="allovated_time_in_min(smv)" required="required" /><br>
+      <input type="text" name="no_of_unfinished_products" placeholder="no_of_unfinished_products" required="required" /><br>
+      <input type="text" name="over_time" placeholder="Over Time" required="required" /><br>
+      <input type="text" name="incentive" placeholder="Incentive" required="required" /><br>
+      <input type="text" name="idle_time" placeholder="Idle Time" required="required" /><br>
+      <input type="text" name="idle_men" placeholder="Idle Men" required="required" /><br>
+      <input type="text" name="no_of_style_change" placeholder="No. of Style Change" required="required" /><br>
+      <input type="text" name="no_of_workers" placeholder="No. of Workers" required="required" /><br>
+      <button type="submit">Predict</button>
     </form>
-
-   <br>
-   <br>
-  
-   
- </div>
- {{prediction_text}}
-
+    <br>
+    <br>
+  </div>
+  {{prediction_text}}
 </body>
 </html>
